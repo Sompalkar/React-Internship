@@ -1,6 +1,9 @@
 # React Internship Assignment
 
 **Created by Somnath Palkar**
+Email: palkarsom1@gmail.com
+
+A live demo of this project can be accessed [here](https://growme-org-react-assgnmt.netlify.app/first-page).
 
 ## Project Overview
 
@@ -47,10 +50,6 @@ To run this project locally, follow these steps:
 2. Navigate to the project directory in your terminal.
 3. Install dependencies using `npm install`.
 4. Run the development server using `npm run dev`.
-
-## Live Demo
-
-A live demo of this project can be accessed [here](https://your-live-demo-url.com).
 
 ## Technologies Used
 
