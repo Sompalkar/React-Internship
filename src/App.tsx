@@ -11,7 +11,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/first-page" element={<FirstPage />} />
         <Route path="/second-page" element={<SecondPage />} />
-        <Route path="*" element={<Navigate to="/first-page" />} />  
+        <Route path="/" element={<Navigate to="/first-page" />} />  
       </Routes>
     </Router>
   );

@@ -32,10 +32,10 @@ const SecondPage: React.FC = () => {
 
   return (
     <div className='secondPage' >
-      
+
       <div className='Main'>
 
-      <h1>User's Posts </h1>
+      <p className='userHeader'>User's Posts Data </p>
       <DataGrid className='dataTable' rows={data} columns={columns}   />
 
       <div className='department '> <DepartmentListWithJSON/> </div>

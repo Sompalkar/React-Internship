@@ -17,13 +17,13 @@ function Navbar(): JSX.Element {
             <Link className='linkOptions' to='/'>
                First Page
             </Link>
-            <Link className='linkOptions' to='/second-page'>
+            <Link className='linkOptions' to='/'>
                Second Page
             </Link>
-            <Link className='linkOptions' to='/Pricing'>
+            <Link className='linkOptions' to='/'>
             Contact
             </Link>
-            <Link className='linkOptions' to='/Blogs'>
+            <Link className='linkOptions' to='/'>
                About Us
             </Link>
           </div>

@@ -14,14 +14,26 @@
       margin: auto;
       align-items: center;
       text-align: center;
-      
     height: 500px;
 }
 
+ .userHeader{
+
+       font-size: 2rem;
+       font-weight: 500;
+       
+ }
+
+
+
+
 .dataTable{
       
-    max-width:  60%;
+    max-width:  90%;
     margin: auto;
+    
+      
+    background-color: #faf3f3;  
 
 }
 

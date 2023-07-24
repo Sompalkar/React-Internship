@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { TextField, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom'; 
 import Navbar from './Navbar';
 import './FirstPage.css';
 
@@ -13,14 +12,14 @@ const FirstPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Save user details in localStorage or send to API if required
+    // Save user details in localStorage  
 
     // Redirect to the second page
     navigate('/second-page');
   };
 
   const handleBack = () => {
-    // Redirect back to the first page if user attempts to access the second page without submitting the form
+     
     if (!submitted) {
       navigate('/first-page');
        
