@@ -3,7 +3,7 @@
 **Created by Somnath Palkar**
 Email: palkarsom1@gmail.com
 
-A live demo of this project can be accessed [here](https://growme-org-react-assgnmt.netlify.app/first-page).
+A live demo of this project can be accessed [React Internship Assignment-DEMOLIVE](https://growme-org-react-assgnmt.netlify.app/).
 
 ## Project Overview
 
