@@ -1,6 +1,32 @@
  
+
+.depList{
+
+    max-width: 95%;
+    margin: auto;
+    
+    border: 0.5px solid grey;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .department-tree {
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 30px;
+    
   }
   
   .department-tree .MuiTreeItem-label {
@@ -22,9 +48,11 @@
   
   .department-tree .MuiTypography-root {
     font-size: 16px;
+    font-weight: 600;
   }
   
   .department-tree .MuiTreeItem-root.Mui-selected > .MuiTreeItem-content {
-    background-color: #e0e0e0;
+    background-color: #c2bbbb;  
   }
   
+

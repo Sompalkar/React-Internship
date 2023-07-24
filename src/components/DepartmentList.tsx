@@ -5,7 +5,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { TreeItem } from '@mui/lab';
 import { Checkbox } from '@mui/material';
-import './DepartmentList.css'; 
+import './DepartmentList.css'; // Import the CSS file
 
 const departmentsData = [
   {
@@ -30,7 +30,9 @@ const DepartmentListWithJSON: React.FC = () => {
     if (selectedDepartments.includes(department)) {
       // If the department is already selected, remove it and its sub-departments
       setSelectedDepartments((prevState) =>
-        prevState.filter((dept) => !subDepartments.includes(dept))
+        prevState.filter(
+          (dept) => !subDepartments.includes(dept) && dept !== department
+        )
       );
     } else {
       // If the department is not selected, add it along with its sub-departments
@@ -57,22 +59,6 @@ const DepartmentListWithJSON: React.FC = () => {
     return selectedDepartments.includes(subDepartment);
   };
 
-  const handleParentUnselect = (department: string) => {
-    const departmentData = departmentsData.find(
-      (dept) => dept.department === department
-    );
-    if (
-      departmentData &&
-      departmentData.sub_departments.every((subDept) =>
-        selectedDepartments.includes(subDept)
-      )
-    ) {
-      setSelectedDepartments((prevState) =>
-        prevState.filter((dept) => dept !== department)
-      );
-    }
-  };
-
   const renderTree = (department: Department) => (
     <TreeItem
       key={department.department}
@@ -81,6 +67,12 @@ const DepartmentListWithJSON: React.FC = () => {
         <span>
           <Checkbox
             checked={isDepartmentSelected(department.department)}
+            indeterminate={
+              !isDepartmentSelected(department.department) &&
+              department.sub_departments.some((subDept) =>
+                selectedDepartments.includes(subDept)
+              )
+            }
             onChange={() =>
               handleToggle(department.department, department.sub_departments)
             }
@@ -108,6 +100,8 @@ const DepartmentListWithJSON: React.FC = () => {
   );
 
   return (
+
+    <div className='depList'>
     <TreeView
       className="department-tree" // Add the custom class
       defaultCollapseIcon={<ExpandMoreIcon />}
@@ -116,6 +110,8 @@ const DepartmentListWithJSON: React.FC = () => {
     >
       {departmentsData.map((dept) => renderTree(dept))}
     </TreeView>
+
+    </div>
   );
 };
 
