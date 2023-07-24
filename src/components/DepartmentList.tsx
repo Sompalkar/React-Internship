@@ -1,18 +1,20 @@
+// DepartmentListWithJSON.js
 import React, { useState } from 'react';
 import TreeView from '@mui/lab/TreeView';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { TreeItem } from '@mui/lab';
 import { Checkbox } from '@mui/material';
+import './DepartmentList.css'; 
 
 const departmentsData = [
   {
-    department: 'customer_service',
-    sub_departments: ['support', 'customer_success'],
+    department: 'Customer Service',
+    sub_departments: ['Support', 'Customer Success'],
   },
   {
-    department: 'design',
-    sub_departments: ['graphic_design', 'product_design', 'web_design'],
+    department: 'Design',
+    sub_departments: ['Graphic Design', 'Product Design', 'Web Design'],
   },
 ];
 
@@ -51,11 +53,11 @@ const DepartmentListWithJSON: React.FC = () => {
     );
   };
 
-  const isSubDepartmentSelected = (subDepartment: string): boolean => {
+  const isSubDSelected = (subDepartment: string): boolean => {
     return selectedDepartments.includes(subDepartment);
   };
 
-  const handleParentDepartmentUnselect = (department: string) => {
+  const handleParentUnselect = (department: string) => {
     const departmentData = departmentsData.find(
       (dept) => dept.department === department
     );
@@ -94,7 +96,7 @@ const DepartmentListWithJSON: React.FC = () => {
           label={
             <span>
               <Checkbox
-                checked={isSubDepartmentSelected(subDept)}
+                checked={isSubDSelected(subDept)}
                 onChange={() => handleToggle(subDept, [])}
               />
               {subDept}
@@ -107,6 +109,7 @@ const DepartmentListWithJSON: React.FC = () => {
 
   return (
     <TreeView
+      className="department-tree" // Add the custom class
       defaultCollapseIcon={<ExpandMoreIcon />}
       defaultExpandIcon={<ChevronRightIcon />}
       selected={selectedDepartments}

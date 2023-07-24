@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchJsonData } from '../utils/api';
 import { DataGrid, GridColDef } from '@mui/x-data-grid'; 
 import DepartmentListWithJSON from './DepartmentList';
+import './SecondPage.css'
 
 
 interface Post {
@@ -19,21 +20,26 @@ const columns: GridColDef[] = [
 ];
 
 const SecondPage: React.FC = () => {
+
   const [data, setData] = useState<Post[]>([]);
 
   useEffect(() => {
-    // Fetch data from API and update the state
+    // Fetch data from  api  and update the page/component
     fetchJsonData('https://jsonplaceholder.typicode.com/posts')
       .then((response) => setData(response))
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
 
   return (
-    <div style={{ height: 400, width: '100%' }}>
-      <h1>Second Page</h1>
-      <DataGrid rows={data} columns={columns}   />
+    <div className='secondPage' >
+      
+      <div className='Main'>
 
-      <div> <DepartmentListWithJSON/> </div>
+      <h1>User's Posts </h1>
+      <DataGrid className='dataTable' rows={data} columns={columns}   />
+
+      <div className='department '> <DepartmentListWithJSON/> </div>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,34 @@
+
+
+.secondPage{
+
+      margin: 20px;
+      margin-top: 150px;
+      max-width: 100%;
+      
+
+}
+
+.Main{
+
+      margin: auto;
+      align-items: center;
+      text-align: center;
+      
+    height: 500px;
+}
+
+.dataTable{
+      
+    max-width:  60%;
+    margin: auto;
+
+}
+
+.department{
+
+      margin-top: 40px;
+      align-items: center;
+      min-height: 300px;
+
+}

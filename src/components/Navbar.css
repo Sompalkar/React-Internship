@@ -1,0 +1,116 @@
+
+
+
+
+
+
+
+
+.mainDiv{
+    max-width:  100%;  
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+
+
+
+
+
+.navBar{
+    padding-top: 20px;
+     display: flex;
+     width:  100%;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: space-around;
+     align-items: center; 
+     position: fixed;
+     top: 0;
+     right: 0;
+     left: 0;
+     margin: auto;
+     color: black;
+
+}
+
+.navBarLogo {
+
+    list-style: none;
+    text-decoration: none;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 35px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font:bold;
+
+}
+
+   .navBarLogo:hover{
+
+            color: rgb(7, 238, 238);
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+.navLoginBtn{
+      
+    background-color:rgba(254, 210, 91, 0.2);
+    border: 1px solid rgba(254, 210, 91, 1);
+    color: 
+    rgb(51, 39, 8);
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
+.navbarLinks{
+       display: flex;
+       flex-direction: row;
+       list-style: none;
+       flex-wrap: wrap;
+       text-decoration: none;
+       justify-content: space-around; 
+       width:30rem;
+       cursor: pointer;
+       color: black;
+}
+
+@media screen and (max-width: 680px) {
+    .navbarLinks {
+      /* Set the display to none when the width is 680px or less */
+      display: none;
+    }
+  }
+
+
+  .linkOptions {
+    list-style: none;
+    text-decoration: none;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 1.4rem;
+  }
+ 
+ .linkOptions:hover{
+
+          color: rgb(2, 255, 255);
+    
+ }
+ 
+
+
+  

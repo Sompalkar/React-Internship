@@ -1,0 +1,30 @@
+ 
+.department-tree {
+    font-size: 16px;
+  }
+  
+  .department-tree .MuiTreeItem-label {
+    display: flex;
+    align-items: center;
+  }
+  
+  .department-tree .MuiTreeItem-content {
+    padding: 4px 8px;
+  }
+  
+  .department-tree .MuiTreeItem-iconContainer {
+    margin-right: 4px;
+  }
+  
+  .department-tree .MuiCheckbox-root {
+    padding: 2px;
+  }
+  
+  .department-tree .MuiTypography-root {
+    font-size: 16px;
+  }
+  
+  .department-tree .MuiTreeItem-root.Mui-selected > .MuiTreeItem-content {
+    background-color: #e0e0e0;
+  }
+  
