@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import TreeView from "@mui/lab/TreeView";
-
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-
 import { TreeItem } from "@mui/lab";
-
 import { Checkbox } from "@mui/material";
 import "./DepartmentList.css";
 
@@ -28,24 +24,20 @@ interface Department {
   sub_departments: string[];
 }
 
-const DepartmentListWithJSON: React.FC = () => {
+const DepartmentList: React.FC = () => {
   const [selectedDepartments, setSelectedDepartments] = useState<string[]>([]);
 
   // Function to handle toggling selection of departments and sub-departments
-
   const handleToggle = (department: string, subDepartments: string[]) => {
     if (selectedDepartments.includes(department)) {
       // If the department is already selected, remove it and its sub-departments
-
       setSelectedDepartments((prevState) =>
         prevState.filter(
           (dept) => !subDepartments.includes(dept) && dept !== department
         )
       );
     } else {
-
       // If the department is not selected then add it with its sub-departments
-
       setSelectedDepartments((prevState) => [
         ...prevState,
         department,
@@ -54,30 +46,24 @@ const DepartmentListWithJSON: React.FC = () => {
     }
   };
 
-  // Function to check if a department is  selected including all its sub-departments
-
-
+  // Function to check if a department is selected including all its sub-departments
   const isDepartmentSelected = (department: string): boolean => {
     return (
-                         selectedDepartments.includes(department) && departmentsData
-                  .find((dept) => dept.department === department)
-                                                ?.sub_departments.every((subDept) =>
-                  selectedDepartments.includes(subDept)
-        )
+      selectedDepartments.includes(department) &&
+      (departmentsData
+        .find((dept) => dept.department === department)
+        ?.sub_departments.every((subDept) =>
+          selectedDepartments.includes(subDept)
+        ) ?? false) // Group the ?? operator with the every function using parentheses
     );
   };
 
-       // Function to check if a sub-department is selected or not 
-
-
-  const isSubDSelected = (subDepartment: string): boolean => {
-
-           return selectedDepartments.includes(subDepartment);
+  // Function to check if a sub-department is selected or not
+  const isSubDepartmentSelected = (subDepartment: string): boolean => {
+    return selectedDepartments.includes(subDepartment);
   };
 
-
   // Function to render the tree view for departments and sub-departments
-
   const renderTree = (department: Department) => (
     <TreeItem
       key={department.department}
@@ -107,7 +93,7 @@ const DepartmentListWithJSON: React.FC = () => {
           label={
             <span>
               <Checkbox
-                checked={isSubDSelected(subDept)}
+                checked={isSubDepartmentSelected(subDept)}
                 onChange={() => handleToggle(subDept, [])}
               />
               {subDept}
@@ -126,11 +112,11 @@ const DepartmentListWithJSON: React.FC = () => {
         defaultExpandIcon={<ChevronRightIcon />}
         selected={selectedDepartments}
       >
-        {/* rendering  the department tree */}
+        {/* Rendering the department tree */}
         {departmentsData.map((dept) => renderTree(dept))}
       </TreeView>
     </div>
   );
 };
 
-export default DepartmentListWithJSON;
+export default DepartmentList;

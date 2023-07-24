@@ -7,8 +7,7 @@ const FirstPage: React.FC = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [email, setEmail] = useState(''); 
 
   // Function to handle form submission
   const handleSubmit = (e: React.FormEvent) => {
@@ -35,9 +34,9 @@ const FirstPage: React.FC = () => {
 
   // Function to handle going back to the first page (not used in the current code)
   const handleBack = () => {
-    if (!submitted) {
-      navigate('/first-page');
-    }
+    // if (!submitted) {
+    //   navigate('/first-page');
+    // }
   };
 
   return (
@@ -54,7 +53,7 @@ const FirstPage: React.FC = () => {
             placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            required
+             
           />
           {/* Input for user's phone number */}
           <input
@@ -62,7 +61,7 @@ const FirstPage: React.FC = () => {
             placeholder="Phone Number"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
-            required
+             
           />
           {/* Input for user's email */}
           <input
@@ -70,7 +69,7 @@ const FirstPage: React.FC = () => {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
+            
           />
           {/* Submit button for the form */}
           <button onClick={() => handleBack()} type="submit">
