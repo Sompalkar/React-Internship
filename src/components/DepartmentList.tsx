@@ -1,23 +1,28 @@
-// DepartmentListWithJSON.js
-import React, { useState } from 'react';
-import TreeView from '@mui/lab/TreeView';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { TreeItem } from '@mui/lab';
-import { Checkbox } from '@mui/material';
-import './DepartmentList.css'; // Import the CSS file
+import React, { useState } from "react";
+import TreeView from "@mui/lab/TreeView";
 
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+
+import { TreeItem } from "@mui/lab";
+
+import { Checkbox } from "@mui/material";
+import "./DepartmentList.css";
+
+// Sample department data in JSON format
 const departmentsData = [
   {
-    department: 'Customer Service',
-    sub_departments: ['Support', 'Customer Success'],
+    department: "Customer Service",
+    sub_departments: ["Support", "Customer Success"],
   },
   {
-    department: 'Design',
-    sub_departments: ['Graphic Design', 'Product Design', 'Web Design'],
+    department: "Design",
+    sub_departments: ["Graphic Design", "Product Design", "Web Design"],
   },
 ];
 
+// Interface for the Department object
 interface Department {
   department: string;
   sub_departments: string[];
@@ -26,16 +31,21 @@ interface Department {
 const DepartmentListWithJSON: React.FC = () => {
   const [selectedDepartments, setSelectedDepartments] = useState<string[]>([]);
 
+  // Function to handle toggling selection of departments and sub-departments
+
   const handleToggle = (department: string, subDepartments: string[]) => {
     if (selectedDepartments.includes(department)) {
       // If the department is already selected, remove it and its sub-departments
+
       setSelectedDepartments((prevState) =>
         prevState.filter(
           (dept) => !subDepartments.includes(dept) && dept !== department
         )
       );
     } else {
-      // If the department is not selected, add it along with its sub-departments
+
+      // If the department is not selected then add it with its sub-departments
+
       setSelectedDepartments((prevState) => [
         ...prevState,
         department,
@@ -44,20 +54,29 @@ const DepartmentListWithJSON: React.FC = () => {
     }
   };
 
+  // Function to check if a department is  selected including all its sub-departments
+
+
   const isDepartmentSelected = (department: string): boolean => {
     return (
-      selectedDepartments.includes(department) &&
-      departmentsData
-        .find((dept) => dept.department === department)
-        ?.sub_departments.every((subDept) =>
-          selectedDepartments.includes(subDept)
+                         selectedDepartments.includes(department) && departmentsData
+                  .find((dept) => dept.department === department)
+                                                ?.sub_departments.every((subDept) =>
+                  selectedDepartments.includes(subDept)
         )
     );
   };
 
+       // Function to check if a sub-department is selected or not 
+
+
   const isSubDSelected = (subDepartment: string): boolean => {
-    return selectedDepartments.includes(subDepartment);
+
+           return selectedDepartments.includes(subDepartment);
   };
+
+
+  // Function to render the tree view for departments and sub-departments
 
   const renderTree = (department: Department) => (
     <TreeItem
@@ -100,17 +119,16 @@ const DepartmentListWithJSON: React.FC = () => {
   );
 
   return (
-
-    <div className='depList'>
-    <TreeView
-      className="department-tree" // Add the custom class
-      defaultCollapseIcon={<ExpandMoreIcon />}
-      defaultExpandIcon={<ChevronRightIcon />}
-      selected={selectedDepartments}
-    >
-      {departmentsData.map((dept) => renderTree(dept))}
-    </TreeView>
-
+    <div className="depList">
+      <TreeView
+        className="department-tree"
+        defaultCollapseIcon={<ExpandMoreIcon />}
+        defaultExpandIcon={<ChevronRightIcon />}
+        selected={selectedDepartments}
+      >
+        {/* rendering  the department tree */}
+        {departmentsData.map((dept) => renderTree(dept))}
+      </TreeView>
     </div>
   );
 };

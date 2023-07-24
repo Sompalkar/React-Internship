@@ -10,7 +10,7 @@
     max-width:  100%;  
   display: flex;
   flex-wrap: wrap;
-  
+   
 }
 
 
@@ -32,6 +32,7 @@
      left: 0;
      margin: auto;
      color: black;
+     
 
 }
 

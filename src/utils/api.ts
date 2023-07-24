@@ -1,8 +1,17 @@
+
+
+
+
 export async function fetchJsonData(url: string): Promise<any> {
     try {
+
+
+
       const response = await fetch(url);
+
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+
+        throw new Error('response was not ok');
       }
       return response.json();
     } catch (error) {

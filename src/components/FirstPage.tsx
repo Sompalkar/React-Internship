@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import './FirstPage.css';
 
@@ -10,29 +10,45 @@ const FirstPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
+  // Function to handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Save user details in localStorage  
+
+    // Check if the form is filled before proceeding
+    if (!name || !phoneNumber || !email) {
+      // If any field is empty show an alert to the user
+      alert("Can't access the second page without filling the form.");
+      return;
+    }
+
+    // Save user details in localStorage
+    const userDetails = {
+      name,
+      phoneNumber,
+      email,
+    };
+    localStorage.setItem('userDetails', JSON.stringify(userDetails));
 
     // Redirect to the second page
     navigate('/second-page');
   };
 
+  // Function to handle going back to the first page (not used in the current code)
   const handleBack = () => {
-     
     if (!submitted) {
       navigate('/first-page');
-       
     }
   };
 
   return (
     <div className="firstPage">
       <div className="navbar">
+        {/* Render the Navbar component */}
         <Navbar />
       </div>
       <div className="container">
         <form className="form" onSubmit={handleSubmit}>
+          {/* Input for user's name */}
           <input
             type="text"
             placeholder="Name"
@@ -40,6 +56,7 @@ const FirstPage: React.FC = () => {
             onChange={(e) => setName(e.target.value)}
             required
           />
+          {/* Input for user's phone number */}
           <input
             type="tel"
             placeholder="Phone Number"
@@ -47,6 +64,7 @@ const FirstPage: React.FC = () => {
             onChange={(e) => setPhoneNumber(e.target.value)}
             required
           />
+          {/* Input for user's email */}
           <input
             type="email"
             placeholder="Email"
@@ -54,8 +72,10 @@ const FirstPage: React.FC = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <button type="submit">Submit</button>
-           
+          {/* Submit button for the form */}
+          <button onClick={() => handleBack()} type="submit">
+            Submit
+          </button>
         </form>
       </div>
     </div>

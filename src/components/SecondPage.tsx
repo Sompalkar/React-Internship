@@ -24,7 +24,7 @@ const SecondPage: React.FC = () => {
   const [data, setData] = useState<Post[]>([]);
 
   useEffect(() => {
-    // Fetch data from  api  and update the page/component
+    // Fetching  data from  api  and updating the State
     fetchJsonData('https://jsonplaceholder.typicode.com/posts')
       .then((response) => setData(response))
       .catch((error) => console.error('Error fetching data:', error));
@@ -36,9 +36,15 @@ const SecondPage: React.FC = () => {
       <div className='Main'>
 
       <p className='userHeader'>User's Posts Data </p>
-      <DataGrid className='dataTable' rows={data} columns={columns}   />
+      {/* //displaying data of api using DataGrid  */}
+      <DataGrid className='dataTable' rows={data} columns={columns}  />
 
-      <div className='department '> <DepartmentListWithJSON/> </div>
+      <div className='department '>
+
+         {/* // rendering DepartmentList component which contain hierarchical tree  */}
+         <DepartmentListWithJSON/> 
+         
+         </div>
       </div>
     </div>
   );
