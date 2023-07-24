@@ -1,27 +1,73 @@
-# React + TypeScript + Vite
+# React Internship Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Created by Somnath Palkar**
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is a React application developed as part of an internship assignment. The objective of the assignment was to build a functional React application with various features and functionalities.
 
-## Expanding the ESLint configuration
+### Task 1: Application Configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- The project was bootstrapped with [Vite](https://vitejs.dev/guide/), a build tool that provides fast and efficient development experience for React applications.
+- [Material-UI (MUI)](https://mui.com/material-ui/getting-started/overview/) was used to configure the application, ensuring the usage of MUI components for buttons, text fields, dialogs, and more.
 
-- Configure the top-level `parserOptions` property like this:
+### Task 2: First Page of the Application
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+- A form was created on the first page to collect user information, including:
+  - Name
+  - Phone number
+  - Email
+- Upon form submission, the user details are saved in localStorage, and the user is redirected to the second page.
+- If the user attempts to access the second page without providing the necessary information, they are redirected back to the first page with a message indicating that they must enter their details before accessing the page.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Task 3: Second Page of the Application [Component 1]
+
+- The second page fetches a list of JSON data from an API (in this case, [JSONPlaceholder](https://jsonplaceholder.typicode.com/posts)).
+- The retrieved JSON data is converted into TypeScript models/interfaces.
+- The data is displayed in a table using the [MUI Data Grid](https://mui.com/x/react-data-grid/).
+
+### Task 4: Second Page of the Application [Component 2]
+
+- Another component was added below the table to display a list of departments and their sub-departments.
+- The user can expand and collapse sub-departments.
+- Users can select individual departments or sub-departments.
+- If the user selects a department, all of its sub-departments are automatically selected in the UI.
+- If the user selects all sub-departments of a department, the parent department is automatically selected as well.
+- If the user unselects a parent department, all its sub-departments get unselected as well.
+
+### Deployment
+
+- The completed application was deployed to a hosting provider, making it accessible online.
+
+## Getting Started
+
+To run this project locally, follow these steps:
+
+1. Clone the repository from [GitHub Repo URL].
+2. Navigate to the project directory in your terminal.
+3. Install dependencies using `npm install`.
+4. Run the development server using `npm run dev`.
+
+## Live Demo
+
+A live demo of this project can be accessed [here](https://your-live-demo-url.com).
+
+## Technologies Used
+
+- React
+- TypeScript
+- Vite
+- Material-UI (MUI)
+
+## Contact Information
+
+For any inquiries or questions regarding this project, please feel free to contact:
+
+**Somnath Palkar**  
+Email: palkarsom1@gmail.com
+
+**Project Name:** React Internship Assignment
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
